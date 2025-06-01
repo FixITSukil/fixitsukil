@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | About Us</title>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" 
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+
+  <!--
+    Additional CSS overrides specific to about.html
+    (You can also append these to your main style.css under a comment block if you prefer.)
+  -->
+  <style>
+    /* -----------------------------------------------------------------------------
+       ABOUT PAGE: MAIN WRAPPER
+       -----------------------------------------------------------------------------
+       Centers the content block, adds a subtle background behind it, and ensures 
+       readability. 
+    ----------------------------------------------------------------------------- */
+    .about-container {
+      background-color: #fff;
+      max-width: 1000px;
+      margin: 40px auto 80px;   /* 40px top margin, 80px bottom to separate from footer */
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    /* LEFT COLUMN: IMAGE */
+    .about-image-wrapper {
+      flex: 0 0 40%;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    .about-image-wrapper img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    /* RIGHT COLUMN: TEXT CONTENT */
+    .about-text-wrapper {
+      flex: 0 0 60%;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-text-wrapper h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+    .about-text-wrapper h3 {
+      font-size: 22px;
+      margin-top: 30px;
+      margin-bottom: 12px;
+      color: #ED1C24; /* brand red */
+      text-align: left;
+    }
+    .about-text-wrapper p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .about-text-wrapper ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .about-text-wrapper ul li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+    .about-text-wrapper ul li::before {
+      content: "✅";
+      margin-right: 10px;
+      color: #28a745; /* green check */
+      font-size: 18px;
+    }
+
+    /* “Back to Home” button under content, full‐width on small screens */
+    .back-home-wrapper {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .back-home-wrapper .cta-button {
+      background-color: #ED1C24;
+      padding: 12px 24px;
+      font-size: 16px;
+    }
+    .back-home-wrapper .cta-button:hover {
+      background-color: #b1000f;
+    }
+
+    /* RESPONSIVE: Stack columns on narrow screens */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        margin: 20px auto 40px;
+      }
+      .about-image-wrapper,
+      .about-text-wrapper {
+        flex: 1 0 100%;
+        padding: 30px 20px;
+      }
+      .about-text-wrapper h2 {
+        font-size: 28px;
+      }
+      .about-text-wrapper h3 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STICKY HEADER & SIDE MENU (unchanged) -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="menu-button" id="menuButtonAbout">&#9776;</div>
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+    <nav class="side-menu" id="sideMenuAbout">
+      <div class="close-button" id="closeButtonAbout">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO BANNER (optional; can remove if you prefer) -->
+  <section class="hero fade-in" style="padding: 60px 20px;">
+    <h1 style="font-size: 36px; color: #fff; margin-bottom: 10px;">About Fix It Sukil</h1>
+    <p class="tagline" style="font-size: 18px; color: #fff;">
+      Our Vision • Mission • Story
+    </p>
+  </section>
+
+  <!-- ABOUT CONTAINER: Two columns centered in a white block -->
+  <section class="about-container fade-in">
+
+    <!-- LEFT: Logo on a light gray background -->
+    <div class="about-image-wrapper">
+      <img src="EXTENDED-MAIN-BLACK.png" alt="Fix It Sukil Logo (Black Extended)" />
+    </div>
+
+    <!-- RIGHT: All textual content -->
+    <div class="about-text-wrapper">
+      <h2>About Us</h2>
+
+      <!-- VISION -->
+      <h3>Vision</h3>
+      <p>
+        To be Klang Valley’s most trusted and accessible tech service provider—empowering people 
+        and businesses through fast, reliable, and affordable IT solutions.
+      </p>
+
+      <!-- MISSION -->
+      <h3>Mission</h3>
+      <p>
+        Deliver expert computer &amp; laptop repair services with honesty and transparency. Provide 
+        full‐spectrum IT support for individuals and businesses across the Klang Valley. Simplify 
+        technology for everyone—through clear communication, rapid turnaround, and fair pricing. 
+        Continuously evolve our skills, tools, and services to keep pace with technology.
+      </p>
+
+      <!-- OUR STORY -->
+      <h3>Our Story</h3>
+      <p>
+        Founded by Sukil A/L P. Rajendran—an IT specialist with a background in managing complex enterprise systems—Fix It Sukil 
+        is your all‐in‐one IT solution provider serving the entire Klang Valley. We combine decades of 
+        technical experience with transparent, customer‐first service.
+      </p>
+
+      <!-- SPECIALTIES LIST -->
+      <p>We specialize in:</p>
+      <ul>
+        <li>Laptop &amp; Desktop Repairs</li>
+        <li>Custom‐Built PCs &amp; Gaming Builds</li>
+        <li>Onsite &amp; Remote IT Support</li>
+        <li>Refurbished Device Sales</li>
+        <li>Software Solutions &amp; Consultations</li>
+      </ul>
+
+      <!-- WHAT WE OFFER LIST -->
+      <h3>What We Offer</h3>
+      <ul>
+        <li>Free pick‐up &amp; delivery within the Klang Valley</li>
+        <li>Onsite support for homes &amp; offices</li>
+        <li>Transparent communication &amp; honest advice</li>
+        <li>Warranty provided for all repairs &amp; services</li>
+        <li>Flexible payment options (cash &amp; online)</li>
+      </ul>
+
+      <!-- BACK TO HOME BUTTON -->
+      <div class="back-home-wrapper">
+        <a href="index.html" class="cta-button">← Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (shared across all pages) -->
+  <footer class="footer">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget" alt="Visit counter For Websites" border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- MENU TOGGLE & FADE‐IN SCRIPT (same as your other pages) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton  = document.getElementById('menuButtonAbout');
+      const sideMenu    = document.getElementById('sideMenuAbout');
+      const closeButton = document.getElementById('closeButtonAbout');
+
+      // Open side‐menu
+      menuButton.addEventListener('click', () => sideMenu.classList.add('active'));
+      // Close side‐menu
+      closeButton.addEventListener('click', () => sideMenu.classList.remove('active'));
+
+      // Fade‐in on scroll
+      const fadeElements   = document.querySelectorAll('.fade-in');
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const fadeObserver    = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

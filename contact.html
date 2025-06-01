@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== STICKY HEADER & SIDE MENU ========== -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <!-- Hamburger icon -->
+      <div class="menu-button" id="menuButtonContact">&#9776;</div>
+      <!-- Logo centered -->
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+
+    <!-- Side‐panel menu -->
+    <nav class="side-menu" id="sideMenuContact">
+      <div class="close-button" id="closeButtonContact">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Everything except footer goes here -->
+  <div class="main-content">
+
+    <!-- “Back to Home” button -->
+    <div style="padding: 20px;">
+      <a href="index.html" class="cta-button">← Back to Home</a>
+    </div>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section class="booking fade-in" id="contact">
+      <h2>Send Us a Message</h2>
+      <p>Fill in your info and we’ll get back to you shortly.</p>
+
+      <div class="contact-wrapper">
+        <!-- Left column: Contact form -->
+        <div class="contact-form">
+          <form id="contactForm" novalidate>
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <input type="text" name="phone" placeholder="Phone Number" required />
+            <textarea name="message" placeholder="Your Message..." required></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <p id="contact-response" style="margin-top:15px;"></p>
+        </div>
+
+        <!-- Right column: Google Map + Address -->
+        <div class="contact-info">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.01945966845!2d101.65718751086067!3d3.0894773968731895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4bffd0038a45%3A0xce3fac09be1fc35f!2sFix%20IT%20Sukil%20(Home%20Based%20Business)!5e0!3m2!1sen!2sus!4v1748796010427!5m2!1sen!2sus"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <h3>Our Address</h3>
+          <p>No. 92, Jalan 5/60, Bukit Gasing,<br>46000 Petaling Jaya, Selangor, Malaysia</p>
+          <p><strong>Email:</strong> admin@fixitsukil.com</p>
+          <p><strong>Phone/WhatsApp:</strong> +60 14 611 2790</p>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- /.main-content -->
+
+  <!-- ========== FOOTER (all pages) ========== -->
+  <footer class="footer">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget" alt="Visit counter For Websites" border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========== MENU TOGGLE & FADE-IN SCRIPT ========== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Side-menu toggle for Contact page
+      const menuButton   = document.getElementById('menuButtonContact');
+      const sideMenu     = document.getElementById('sideMenuContact');
+      const closeButton  = document.getElementById('closeButtonContact');
+
+      menuButton.addEventListener('click', () => sideMenu.classList.add('active'));
+      closeButton.addEventListener('click', () => sideMenu.classList.remove('active'));
+
+      // Fade-in on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, observerOptions);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+
+      // Contact form submission: reuse same logic as booking
+      const contactForm = document.getElementById('contactForm');
+      const responseText = document.getElementById('contact-response');
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const submitBtn = contactForm.querySelector('button');
+        responseText.innerText = "⏳ Sending your message...";
+        responseText.style.color = "#555";
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Sending...";
+
+        // Trim values
+        const nameValue    = contactForm.name.value.trim();
+        const emailValue   = contactForm.email.value.trim();
+        const phoneValue   = contactForm.phone.value.trim();
+        const messageValue = contactForm.message.value.trim();
+
+        // Basic validation
+        const phonePattern = /^[0-9]{8,15}$/;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!nameValue || !emailValue || !phoneValue || !messageValue) {
+          responseText.innerText = "❌ Please fill in all fields.";
+          responseText.style.color = "red";
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit";
+          return;
+        }
+        if (!phonePattern.test(phoneValue)) {
+          responseText.innerText = "❌ Invalid phone number. Use 8–15 digits only.";
+          responseText.style.color = "red";
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit";
+          return;
+        }
+        if (!emailPattern.test(emailValue)) {
+          responseText.innerText = "❌ Please enter a valid email address.";
+          responseText.style.color = "red";
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit";
+          return;
+        }
+
+        // Build FormData (no custom headers → no preflight)
+        const formData = new FormData();
+        formData.append("name", nameValue);
+        formData.append("email", emailValue);
+        formData.append("phone", phoneValue);
+        formData.append("message", messageValue);
+
+        // Note: Reuse the same Web App URL for bookings (just writing into the same sheet)
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz9ksvhSp3tc7at2CaMI7ViOgsK5Qf9pOjOqsP6XOJ8w8-qdGRXWADj1Dtijd6muJSD/exec";
+
+        fetch(WEB_APP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        })
+        .then(() => {
+          responseText.innerText = "✅ Message sent! We’ll get back to you soon.";
+          responseText.style.color = "green";
+          contactForm.reset();
+        })
+        .catch(err => {
+          console.error("❌ Fetch error:", err);
+          responseText.innerText = "❌ Something went wrong. Please try again.";
+          responseText.style.color = "red";
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Submit";
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

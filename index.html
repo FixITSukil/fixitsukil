@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | Home</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- STICKY HEADER & SIDE‐MENU -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <!-- Hamburger icon -->
+      <div class="menu-button" id="menuButton">&#9776;</div>
+      <!-- Logo centered -->
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+
+    <!-- Side-panel menu -->
+    <nav class="side-menu" id="sideMenu">
+      <!-- Close icon -->
+      <div class="close-button" id="closeButton">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <h1>Fix It Sukil</h1>
+    <p class="tagline">Your trusted solution for laptop &amp; desktop repair across the Klang Valley</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/60146112790" class="cta-button" target="_blank">
+        📲 Chat on WhatsApp
+      </a>
+      <!-- “View Pricing” button removed, since it’s now in the side‐menu -->
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking fade-in" id="booking">
+    <h2>Make a Booking</h2>
+    <p>Fill in your info and we’ll reach out to confirm the details.</p>
+    <div class="form-container">
+      <form id="bookingForm" novalidate>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="text" name="phone" placeholder="Phone Number" required />
+        <input type="text" name="device" placeholder="Device (Laptop/Desktop)" required />
+        <textarea name="message" placeholder="Describe the issue..." required></textarea>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <button type="submit">Submit Booking</button>
+      </form>
+      <p id="form-response" style="margin-top:15px;"></p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews fade-in">
+    <h2>Trusted by Real People Across Klang Valley</h2>
+    <p>
+      Fix It Sukil has proudly served hundreds of customers with fast, clean, and reliable tech repair.
+      Here’s what they’re saying about their experience with us.
+    </p>
+    <div class="review-widget">
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-2c5dedb3-fafc-4ffb-9953-cb29157c7a89" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-in">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget"
+          alt="Visit counter For Websites"
+          border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- Your existing booking logic -->
+  <script src="script.js"></script>
+
+  <!-- MENU TOGGLE & FADE‐IN SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton = document.getElementById('menuButton');
+      const sideMenu   = document.getElementById('sideMenu');
+      const closeButton = document.getElementById('closeButton');
+
+      // Open side-menu
+      menuButton.addEventListener('click', () => {
+        sideMenu.classList.add('active');
+      });
+      // Close side-menu
+      closeButton.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+      });
+
+      // Fade‐in on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

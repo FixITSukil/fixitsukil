@@ -1,0 +1,469 @@
+/* ------------------------------------------------------------
+  style.css
+  Shared CSS for Fix It Sukil (header, side‐menu, fade‐in, pricing tables, FAQ accordion, etc.)
+-------------------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* --------------------------
+   STICKY HEADER + SIDE MENU
+   -------------------------- */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  z-index: 999;
+  padding: 10px 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header-logo {
+  height: 80px; /* Slightly larger logo */
+}
+
+/* Hamburger menu button */
+.menu-button {
+  position: absolute;
+  left: 20px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+.menu-button:hover {
+  color: #ED1C24;
+}
+
+/* Side-panel (hidden off-screen by default) */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px; /* Off-screen */
+  width: 240px;
+  height: 100%;
+  background-color: #222;
+  z-index: 1000;
+  transition: left 0.3s ease;
+  padding-top: 80px; /* So content sits below header */
+}
+
+/* Slide in when “active” */
+.side-menu.active {
+  left: 0;
+}
+
+/* Close‐icon inside side-menu */
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.close-button:hover {
+  color: #ED1C24;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  border-bottom: 1px solid #333;
+}
+
+.side-menu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 20px;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.side-menu a:hover {
+  background-color: #333;
+}
+
+/* --------------------------
+   FADE‐IN ON SCROLL (all pages)
+   -------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------
+   GLOBAL CTA BUTTONS
+   -------------------------- */
+.cta-button {
+  background: #ED1C24;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 28px;
+  font-weight: bold;
+  border-radius: 6px;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #b1000f;
+}
+
+/* --------------------------
+   HERO SECTION (index.html)
+   -------------------------- */
+.hero {
+  background: #111;
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero .tagline {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.hero-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* --------------------------
+   ABOUT SECTION (index.html)
+   -------------------------- */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.about-image img {
+  max-width: 300px;
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 16px;
+}
+
+/* --------------------------
+   BOOKING SECTION (index.html)
+   -------------------------- */
+.booking {
+  background: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.booking h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.booking p {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+form button {
+  background: #ED1C24;
+  color: white;
+  padding: 14px;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #b1000f;
+}
+
+#form-response {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* --------------------------
+   GOOGLE REVIEWS SECTION (index.html)
+   -------------------------- */
+.reviews {
+  padding: 60px 20px;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+.reviews h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.reviews p {
+  font-size: 16px;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+/* --------------------------
+   FOOTER (all pages)
+   -------------------------- */
+.footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.visitor-counter {
+  margin-top: 10px;
+}
+
+/* --------------------------
+   PRICING SECTION (pricing.html)
+   -------------------------- */
+.pricing-section {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.pricing-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Each “card” around a table */
+.pricing-card-container {
+  background: #fff;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 800px;
+  overflow: hidden;
+}
+
+/* Table styling */
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pricing-table thead {
+  background-color: #ED1C24;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 16px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.pricing-table th {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pricing-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.pricing-table tbody tr:hover {
+  background-color: #fdecea; /* very light red on hover */
+}
+
+.pricing-table td:nth-child(2) {
+  font-weight: bold;
+  color: #ED1C24;
+}
+
+/* Optional: If you want the category headings to stand out */
+.pricing-subheading {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #222;
+}
+
+/* “Back to Home” link below the tables adjusted to red */
+.back-link {
+  margin: 30px 0;
+}
+
+.back-link .cta-button {
+  background: #ED1C24; /* changed to business red */
+}
+
+.back-link .cta-button:hover {
+  background: #b1000f;
+}
+
+/* --------------------------
+   ACCORDION (FAQ Page)
+   -------------------------- */
+.faq-section {
+  background: #fff;
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.accordion {
+  width: 100%;
+}
+
+.accordion-item {
+  border-top: 1px solid #ddd;
+}
+
+.accordion-item:first-child {
+  border-top: none;
+}
+
+/* The clickable question */
+.accordion-header {
+  background: #f7f7f7;
+  color: #222;
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  transition: background 0.2s;
+}
+
+.accordion-header:hover {
+  background: #efefef;
+}
+
+/* The hidden answer section */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #fff;
+  padding: 0 20px;
+}
+
+.accordion-content p {
+  padding: 12px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.accordion-content p strong {
+  color: #ED1C24; /* Emphasize turnaround times in brand color */
+}
+
+/* Scrollbar for very long answers (if needed) */
+.accordion-content::-webkit-scrollbar {
+  width: 6px;
+}
+.accordion-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+
+/* --------------------------
+   RESPONSIVE
+   -------------------------- */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-logo {
+    height: 60px; /* Slightly reduce on small screens */
+  }
+
+  .menu-button {
+    left: 10px; /* Adjust positioning */
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-table th,
+  .pricing-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+  }
+}

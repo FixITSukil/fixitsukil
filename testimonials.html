@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | Testimonials</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER & SIDE MENU -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="menu-button" id="menuButtonTesti">&#9776;</div>
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+    <nav class="side-menu" id="sideMenuTesti">
+      <div class="close-button" id="closeButtonTesti">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- TESTIMONIALS CONTENT -->
+  <section class="fade-in" style="padding: 60px 20px; background: #fff; text-align: center;">
+    <h2>What Our Customers Say</h2>
+    <p>Here are some reviews from clients who have used Fix It Sukil:</p>
+
+    <!-- Static testimonial examples -->
+    <div style="max-width: 800px; margin: 30px auto; text-align: left;">
+      <blockquote style="margin-bottom: 20px; border-left: 4px solid #ED1C24; padding-left: 12px;">
+        “Sukil fixed my laptop hinge in just one day, and the price was very fair. 
+        The pickup & delivery service made it so convenient. Highly recommend!”
+        <cite style="display: block; margin-top: 8px; font-size: 14px; color: #555;">— Aishah, Petaling Jaya</cite>
+      </blockquote>
+      <blockquote style="margin-bottom: 20px; border-left: 4px solid #ED1C24; padding-left: 12px;">
+        “The technician diagnosed my overheating issue quickly and replaced thermal paste for RM70. 
+        My laptop runs much cooler now. Great service!”
+        <cite style="display: block; margin-top: 8px; font-size: 14px; color: #555;">— Rahim, Shah Alam</cite>
+      </blockquote>
+      <blockquote style="margin-bottom: 20px; border-left: 4px solid #ED1C24; padding-left: 12px;">
+        “I had a charging port problem in my Type-C laptop. They fixed it in two days, 
+        and their 1-month warranty gave me peace of mind. Excellent workmanship.”
+        <cite style="display: block; margin-top: 8px; font-size: 14px; color: #555;">— Wei Ling, KLCC</cite>
+      </blockquote>
+    </div>
+
+    <!-- Google Reviews Widget -->
+    <div class="review-widget" style="margin-top: 40px;">
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-2c5dedb3-fafc-4ffb-9953-cb29157c7a89" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <!-- BACK TO HOME BUTTON -->
+  <div class="back-link" style="text-align: center; margin: 30px 0;">
+    <a href="index.html" class="cta-button">← Back to Home</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-in">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget"
+          alt="Visit counter For Websites"
+          border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- MENU & FADE‐IN SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuButton = document.getElementById('menuButtonTesti');
+      const sideMenu   = document.getElementById('sideMenuTesti');
+      const closeButton = document.getElementById('closeButtonTesti');
+
+      menuButton.addEventListener('click', () => {
+        sideMenu.classList.add('active');
+      });
+      closeButton.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+      });
+
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, observerOptions);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

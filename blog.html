@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | Blog</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER & SIDE MENU -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="menu-button" id="menuButtonBlog">&#9776;</div>
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+    <nav class="side-menu" id="sideMenuBlog">
+      <div class="close-button" id="closeButtonBlog">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- COMING SOON -->
+  <section class="fade-in" style="padding: 80px 20px; background: #fff; text-align: center;">
+    <h2>Our Blog Is Coming Soon!</h2>
+    <p style="margin-top: 16px; font-size: 16px; color: #555;">
+      We’re working hard to bring you helpful tips, guides, and the latest news in tech repairs.<br>
+      Check back shortly for updates!
+    </p>
+
+    <!-- “Coming Soon” button as a simple disabled CTA for emphasis -->
+    <div style="margin-top: 32px;">
+      <a href="#" class="cta-button" style="background: #888; cursor: default;">
+        🚧 Coming Soon 🚧
+      </a>
+    </div>
+  </section>
+
+  <!-- BACK TO HOME BUTTON -->
+  <div class="back-link" style="text-align: center; margin: 40px 0;">
+    <a href="index.html" class="cta-button">← Back to Home</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-in">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget"
+          alt="Visit counter For Websites"
+          border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- MENU & FADE‐IN SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Side‐menu toggle for Blog page
+      const menuButton = document.getElementById('menuButtonBlog');
+      const sideMenu   = document.getElementById('sideMenuBlog');
+      const closeButton = document.getElementById('closeButtonBlog');
+
+      menuButton.addEventListener('click', () => {
+        sideMenu.classList.add('active');
+      });
+      closeButton.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+      });
+
+      // Fade‐in on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+    });
+  </script>
+</body>
+</html>

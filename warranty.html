@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | Warranty &amp; Policies</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Additional overrides just for this page */
+    .warranty-section {
+      background: #fff;
+      padding: 60px 20px;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+    .warranty-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #222;
+      text-align: center;
+    }
+    .warranty-section h3 {
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #ED1C24; /* Business red */
+    }
+    .warranty-section ul {
+      margin-top: 8px;
+      padding-left: 20px;
+      list-style: none;
+    }
+    .warranty-section li {
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: #333;
+      position: relative;
+      padding-left: 24px;
+    }
+    .warranty-section li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #0AA74E; /* green checkmark */
+      font-weight: bold;
+    }
+    .warranty-section li.warning::before {
+      content: "⚠️";
+      left: 0;
+      color: #ED1C24; /* red warning icon */
+    }
+    /* Adjust “Back to Home” link positioning */
+    .back-link-warranty {
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER & SIDE MENU -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="menu-button" id="menuButtonWarranty">&#9776;</div>
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+    <nav class="side-menu" id="sideMenuWarranty">
+      <div class="close-button" id="closeButtonWarranty">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- WARRANTY & POLICIES CONTENT -->
+  <section class="warranty-section fade-in">
+    <h2>🔧 Warranty &amp; Policies</h2>
+
+    <!-- 1. One-Month Repair Warranty -->
+    <h3>1. One-Month Repair Warranty</h3>
+    <p>All hinge repairs, charging port repairs, and motherboard repairs come with a <strong>30-day warranty</strong> from the date of service, subject to the following:</p>
+    <ul>
+      <li>Warranty covers mechanical or manufacturing defects only.</li>
+      <li class="warning">Does <strong>not</strong> cover physical damage caused after repair (e.g., new drops or spills).</li>
+      <li class="warning">Any unauthorized opening of the chassis or tampering voids the warranty.</li>
+    </ul>
+
+    <!-- 2. Payment & Refund Policy -->
+    <h3>2. Payment &amp; Refund Policy</h3>
+    <ul>
+      <li>We accept bank transfers (Maybank, CIMB, etc.) or cash on delivery.</li>
+      <li>Full payment is due only after service completion, unless otherwise arranged.</li>
+      <li>If you cancel before pickup, no charges will apply.<br>
+          If cancellation occurs <strong>after</strong> we’ve picked up the device, a <strong>RM 30 inspection fee</strong> applies.
+      </li>
+    </ul>
+
+    <!-- 3. Data Privacy & Liability -->
+    <h3>3. Data Privacy &amp; Liability</h3>
+    <ul>
+      <li>We handle your data with utmost care—no software or personal files are accessed without permission.</li>
+      <li class="warning">While we take all precautions, we are not liable for data loss. We strongly recommend you back up important files before service.</li>
+      <li>In the unlikely event of further hardware damage during service, our liability is limited to the original repair fee.</li>
+    </ul>
+
+    <!-- 4. Pickup & Delivery Terms -->
+    <h3>4. Pickup &amp; Delivery Terms</h3>
+    <ul>
+      <li>We offer free pickup/delivery across Greater Klang Valley (within a 30 km radius).</li>
+      <li>We aim to pick up your device within <strong>24 hours</strong> of booking confirmation.</li>
+      <li>Delivery is typically made within <strong>2 business days</strong> of repair completion.</li>
+    </ul>
+
+    <!-- “Back to Home” CTA -->
+    <div class="back-link-warranty">
+      <a href="index.html" class="cta-button">← Back to Home</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer fade-in">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget"
+          alt="Visit counter For Websites"
+          border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- MENU & FADE‐IN SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Side‐menu toggle
+      const menuButton  = document.getElementById('menuButtonWarranty');
+      const sideMenu    = document.getElementById('sideMenuWarranty');
+      const closeButton = document.getElementById('closeButtonWarranty');
+
+      menuButton.addEventListener('click', () => {
+        sideMenu.classList.add('active');
+      });
+      closeButton.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+      });
+
+      // Fade‐in on scroll
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, observerOptions);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+    });
+  </script>
+</body>
+</html>
