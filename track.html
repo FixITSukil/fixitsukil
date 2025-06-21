@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix It Sukil | Repair Status</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== STICKY HEADER & SIDE MENU ========== -->
+  <header class="sticky-header">
+    <div class="header-container">
+      <div class="menu-button" id="menuButtonTrack">&#9776;</div>
+      <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
+    </div>
+    <nav class="side-menu" id="sideMenuTrack">
+      <div class="close-button" id="closeButtonTrack">&times;</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pricing.html">Services &amp; Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="warranty.html">Warranty &amp; Policies</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== REPAIR STATUS CHECKER ========== -->
+  <section class="fade-in booking" id="status" style="padding: 60px 20px; background: #fff;">
+    <h2>Check Your Repair Status</h2>
+    <p>Please enter both your Repair ID and your given Mobile Number / Phone Number</p>
+
+    <div class="contact-wrapper" style="max-width:400px; margin:0 auto; text-align:left;">
+      <div class="contact-form">
+        <form id="statusForm" novalidate>
+          <div class="form-group">
+            <label for="repairId">Repair ID</label>
+            <input id="repairId" name="repairId" type="text"
+              placeholder="e.g. RPS-0001" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Mobile Number / Phone Number</label>
+            <input id="phone" name="phone" type="text"
+              placeholder="e.g. 0123456789" required />
+          </div>
+          <button type="button" id="checkBtn" class="cta-button">Check Status</button>
+        </form>
+
+        <div id="result" style="display:none; margin-top:20px;">
+          <p id="error" class="error"></p>
+          <div id="details" style="display:none;">
+            <div class="field"><strong>Repair ID:</strong>   <span id="rID"></span></div>
+            <div class="field"><strong>Name:</strong>        <span id="rName"></span></div>
+            <div class="field"><strong>Device:</strong>      <span id="rDevice"></span></div>
+            <div class="field"><strong>Status:</strong>      <span id="rStatus"></span></div>
+            <div class="field"><strong>Remarks:</strong>     <span id="rRemarks"></span></div>
+            <div class="field"><strong>Last Updated:</strong> <span id="rUpdated"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BACK TO HOME BUTTON ========== -->
+  <div class="back-link" style="text-align:center; margin:30px 0;">
+    <a href="index.html" class="cta-button">← Back to Home</a>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer fade-in" style="text-align:center; padding:20px 0;">
+    <p>© 2025 Fix It Sukil. All rights reserved.</p>
+    <div class="visitor-counter">
+      <span>👁 Visitors:</span>
+      <a href="https://www.hitwebcounter.com" target="_blank">
+        <img
+          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget"
+          alt="Visit counter"
+          border="0"
+        />
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========== MENU, FADE-IN & STATUS SCRIPT ========== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Side‐menu toggles
+      const menuButton  = document.getElementById('menuButtonTrack');
+      const sideMenu    = document.getElementById('sideMenuTrack');
+      const closeButton = document.getElementById('closeButtonTrack');
+      menuButton.addEventListener('click', () => sideMenu.classList.add('active'));
+      closeButton.addEventListener('click', () => sideMenu.classList.remove('active'));
+
+      // Fade‐in observer
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const observerOpts = { threshold: 0.1 };
+      const fadeObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, observerOpts);
+      fadeElements.forEach(el => fadeObserver.observe(el));
+
+      // Repair status checker
+      const API_URL = 'https://script.google.com/macros/s/AKfycbwX20jejdDkvOSr1X74IpJ329hHDDdeaR8MAPUw8BonmFc7VDx-CVMSCzT31eQ83sHcfw/exec';
+      const btn     = document.getElementById('checkBtn');
+      btn.addEventListener('click', async () => {
+        const id    = document.getElementById('repairId').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const error = document.getElementById('error');
+        const result= document.getElementById('result');
+        const det   = document.getElementById('details');
+
+        // reset
+        result.style.display = 'none';
+        error.textContent    = '';
+
+        if (!id || !phone) {
+          error.textContent    = 'Both Repair ID and phone number are required.';
+          result.style.display = 'block';
+          det.style.display    = 'none';
+          return;
+        }
+
+        try {
+          const res  = await fetch(`${API_URL}?id=${encodeURIComponent(id)}&phone=${encodeURIComponent(phone)}`);
+          const data = await res.json();
+          result.style.display = 'block';
+
+          if (!data.success) {
+            error.textContent    = data.message;
+            det.style.display    = 'none';
+          } else {
+            error.textContent    = '';
+            det.style.display    = 'block';
+            document.getElementById('rID').textContent      = data.repairID;
+            document.getElementById('rName').textContent    = data.name;
+            document.getElementById('rDevice').textContent  = data.device;
+            document.getElementById('rStatus').textContent  = data.status;
+            document.getElementById('rRemarks').textContent = data.remarks;
+            document.getElementById('rUpdated').textContent = data.lastUpdated;
+          }
+        } catch (e) {
+          result.style.display = 'block';
+          error.textContent    = 'Network error. Please try again later.';
+          console.error(e);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
