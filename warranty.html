@@ -71,6 +71,63 @@
       text-align: center;
       margin-top: 30px;
     }
+
+
+    /* Warranty tables */
+    .warranty-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 15px;
+    }
+    .warranty-table thead tr {
+      background-color: #ED1C24;
+      color: #fff;
+    }
+    .warranty-table th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .warranty-table th:not(:first-child) {
+      text-align: center;
+    }
+    .warranty-table tbody tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+    .warranty-table tbody tr:hover {
+      background-color: #fdecea;
+    }
+    .warranty-table td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #eee;
+      color: #333;
+    }
+    .warranty-table td:not(:first-child) {
+      text-align: center;
+      font-weight: 600;
+      color: #ED1C24;
+    }
+    .warranty-table.three-col td:nth-child(3) {
+      text-align: left;
+      font-weight: normal;
+      color: #555;
+    }
+    .warranty-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    @media (max-width: 640px) {
+      .warranty-table th,
+      .warranty-table td {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      .warranty-table.three-col th,
+      .warranty-table.three-col td {
+        font-size: 12px;
+        padding: 7px 8px;
+      }
+    }
   </style>
 </head>
 <body>
