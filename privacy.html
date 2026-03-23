@@ -121,6 +121,14 @@
     .privacy-section table tbody tr:last-child td {
       border-bottom: none;
     }
+    /* Page load animation */
+    @keyframes pageReveal {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .privacy-section {
+      animation: pageReveal 0.7s ease forwards;
+    }
     .back-link-privacy {
       text-align: center;
       margin-top: 40px;
