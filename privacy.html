@@ -153,7 +153,7 @@
   </header>
 
   <!-- PRIVACY POLICY CONTENT -->
-  <section class="privacy-section fade-in">
+  <section class="privacy-section">
     <h2>🔒 Privacy Policy</h2>
     <p class="effective-date">Effective Date: 22 March 2026 &nbsp;|&nbsp; Last Updated: 22 March 2026</p>
 
@@ -334,7 +334,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer fade-in">
+  <footer class="footer">
     <p>© 2026 Fix It Sukil. All rights reserved.</p>
     <p style="margin-top:8px;font-size:13px;"><a href="privacy.html" style="color:#aaa;text-decoration:none;">Privacy Policy</a></p>
     <div class="visitor-counter">
@@ -349,6 +349,16 @@
   </footer>
 
   <!-- MENU & FADE-IN SCRIPT -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-      c
+      const menuButton  = document.getElementById('menuButtonPrivacy');
+      const sideMenu    = document.getElementById('sideMenuPrivacy');
+      const closeButton = document.getElementById('closeButtonPrivacy');
+
+      menuButton.addEventListener('click', () => sideMenu.classList.add('active'));
+      closeButton.addEventListener('click', () => sideMenu.classList.remove('active'));
+    });
+  </script>
+
+</body>
+</html>
