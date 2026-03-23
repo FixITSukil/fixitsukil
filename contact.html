@@ -37,7 +37,7 @@
     </div>
 
     <!-- Side‐panel menu -->
-    <nav class="side-menu" id="sideMenuContact">
+    <nav class="side-menu" id="sideMenuContact" style="z-index:9999;">
       <div class="close-button" id="closeButtonContact">&times;</div>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -52,6 +52,8 @@
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
     </nav>
+  <!-- Menu overlay to block content clicks -->
+  <div id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:998;background:rgba(0,0,0,0.3);" id="menuOverlay"></div>
   </header>
 
   <!-- Everything except footer goes here -->
@@ -90,7 +92,7 @@
 
           <h3>Our Address</h3>
           <p>No. 92, Jalan 5/60, Bukit Gasing,<br>46000 Petaling Jaya, Selangor, Malaysia</p>
-          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6706030a0e0927010e1f0e1314120c0e0b4904080a">[email&#160;protected]</a></p>
+          <p><strong>Email:</strong> <strong>admin@fixitsukil.com</strong></p>
           <p><strong>Phone/WhatsApp:</strong> +60 14 611 2790</p>
         </div>
       </div>
@@ -122,25 +124,22 @@
       const closeButton  = document.getElementById('closeButtonContact');
 
       const mapIframe = document.getElementById('mapIframe');
+      const overlay   = document.getElementById('menuOverlay');
 
-      menuButton.addEventListener('click', () => {
+      function openMenu() {
         sideMenu.classList.add('active');
+        overlay.style.display = 'block';
         if (mapIframe) mapIframe.style.pointerEvents = 'none';
-      });
-      closeButton.addEventListener('click', () => {
+      }
+      function closeMenu() {
         sideMenu.classList.remove('active');
+        overlay.style.display = 'none';
         if (mapIframe) mapIframe.style.pointerEvents = 'auto';
-      });
+      }
 
-      // Also close menu and restore iframe if user clicks outside
-      document.addEventListener('click', (e) => {
-        if (sideMenu.classList.contains('active') &&
-            !sideMenu.contains(e.target) &&
-            !menuButton.contains(e.target)) {
-          sideMenu.classList.remove('active');
-          if (mapIframe) mapIframe.style.pointerEvents = 'auto';
-        }
-      });
+      menuButton.addEventListener('click', openMenu);
+      closeButton.addEventListener('click', closeMenu);
+      overlay.addEventListener('click', closeMenu);
 
       // Fade-in on scroll
       const fadeElements = document.querySelectorAll('.fade-in');
