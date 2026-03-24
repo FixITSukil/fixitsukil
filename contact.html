@@ -82,7 +82,7 @@
         <div class="contact-info">
 
           <h3>Contact Details</h3>
-          <p><strong>Email:</strong> admin@fixitsukil.com</p>
+          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e9888d848087a98f8091809d9a9c828085c78a8684">[email&#160;protected]</a></p>
           <p><strong>Phone / WhatsApp:</strong> +60 12-577 7436</p>
 
           <!-- Location 1: Main Office - Puncak Alam -->
@@ -134,7 +134,7 @@
   </footer>
 
   <!-- ========== SCRIPTS ========== -->
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     document.addEventListener('DOMContentLoaded', function () {
 
       // ── Side menu ──────────────────────────────────────────────────────
@@ -183,36 +183,37 @@
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         var submitBtn = contactForm.querySelector('button');
-        responseText.innerText = '&#9203; Sending your message...';
+        responseText.innerText = '⏳ Sending your message...';
         responseText.style.color = '#555';
         submitBtn.disabled = true;
         submitBtn.innerText = 'Sending...';
 
-        var nameValue    = contactForm.name.value.trim();
-        var emailValue   = contactForm.email.value.trim();
-        var phoneValue   = contactForm.phone.value.trim();
-        var messageValue = contactForm.message.value.trim();
-        var honeypot     = contactForm._hp ? contactForm._hp.value : '';
+        var nameValue    = contactForm.querySelector('[name="name"]').value.trim();
+        var emailValue   = contactForm.querySelector('[name="email"]').value.trim();
+        var phoneValue   = contactForm.querySelector('[name="phone"]').value.trim();
+        var messageValue = contactForm.querySelector('[name="message"]').value.trim();
+        var hpField      = contactForm.querySelector('[name="_hp"]');
+        var honeypot     = hpField ? hpField.value : '';
 
         var phonePattern = /^[0-9]{8,15}$/;
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!nameValue || !emailValue || !phoneValue || !messageValue) {
-          responseText.innerText = '&#10060; Please fill in all fields.';
+          responseText.innerText = '❌ Please fill in all fields.';
           responseText.style.color = 'red';
           submitBtn.disabled = false;
           submitBtn.innerText = 'Submit';
           return;
         }
         if (!phonePattern.test(phoneValue)) {
-          responseText.innerText = '&#10060; Invalid phone number. Use 8-15 digits only.';
+          responseText.innerText = '❌ Invalid phone number. Use 8-15 digits only.';
           responseText.style.color = 'red';
           submitBtn.disabled = false;
           submitBtn.innerText = 'Submit';
           return;
         }
         if (!emailPattern.test(emailValue)) {
-          responseText.innerText = '&#10060; Please enter a valid email address.';
+          responseText.innerText = '❌ Please enter a valid email address.';
           responseText.style.color = 'red';
           submitBtn.disabled = false;
           submitBtn.innerText = 'Submit';
@@ -231,21 +232,10 @@
 
         fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: formData })
           .then(function() {
-            responseText.innerText = '&#9989; Message sent! We\'ll get back to you soon.';
+            responseText.innerText = '✅ Message sent! We\'ll get back to you soon.';
             responseText.style.color = 'green';
             contactForm.reset();
           })
           .catch(function(err) {
-            responseText.innerText = '&#10060; Something went wrong. Please try again.';
-            responseText.style.color = 'red';
-          })
-          .finally(function() {
-            submitBtn.disabled = false;
-            submitBtn.innerText = 'Submit';
-          });
-      });
-    });
-  </script>
-
-</body>
-</html>
+            responseText.innerText = '❌ Something went wrong. Please try again.';
+    
