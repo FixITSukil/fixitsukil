@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicon -->
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon"          href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon"              type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon"              type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#ffffff">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fix It Sukil | Contact</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-49P1SQX0LM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -27,7 +23,6 @@
 </head>
 <body>
 
-  <!-- ========== STICKY HEADER & SIDE MENU ========== -->
   <header class="sticky-header">
     <div class="header-container">
       <div class="menu-button" id="menuButtonContact">&#9776;</div>
@@ -48,103 +43,81 @@
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
     </nav>
-    <!-- Overlay blocks page content when menu is open -->
     <div id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:998;background:rgba(0,0,0,0.4);"></div>
   </header>
 
   <div class="main-content">
-
     <div style="padding: 20px;">
       <a href="index.html" class="cta-button">&#8592; Back to Home</a>
     </div>
 
-    <!-- ========== CONTACT SECTION ========== -->
     <section class="booking" id="contact">
       <h2>Send Us a Message</h2>
       <p>Fill in your info and we'll get back to you shortly.</p>
 
       <div class="contact-wrapper">
-        <!-- Left column: Contact form -->
         <div class="contact-form">
           <form id="contactForm" novalidate>
             <input type="text" name="name" placeholder="Your Name" required />
             <input type="email" name="email" placeholder="Your Email" required />
             <input type="text" name="phone" placeholder="Phone Number" required />
             <textarea name="message" placeholder="Your Message..." required></textarea>
-            <!-- Honeypot: hidden from humans, bots fill it -->
             <input type="text" name="_hp" style="display:none!important;" tabindex="-1" autocomplete="off" />
             <button type="submit">Submit</button>
           </form>
           <p id="contact-response" style="margin-top:15px;"></p>
         </div>
 
-        <!-- Right column: Info + Maps -->
         <div class="contact-info">
-
           <h3>Contact Details</h3>
-          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e9888d848087a98f8091809d9a9c828085c78a8684">[email&#160;protected]</a></p>
+          <p><strong>Email:</strong> admin@fixitsukil.com</p>
           <p><strong>Phone / WhatsApp:</strong> +60 12-577 7436</p>
 
-          <!-- Location 1: Main Office - Puncak Alam -->
           <h3 style="margin-top:24px;">&#128205; Main Office</h3>
           <p>No. 66, Jalan Mapel 7/8, Bandar Hill Park,<br>42300 Bandar Puncak Alam, Selangor, Malaysia</p>
-          <iframe
-            id="map1"
+          <iframe id="map1"
             src="https://maps.google.com/maps?q=3.2092529,101.4652463&z=17&output=embed"
             width="100%" height="220" style="border:0;border-radius:6px;margin-top:8px;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-          <!-- Location 2: Service Centre 1 - Fraser Towers -->
           <h3 style="margin-top:24px;">&#128205; Service Centre 1</h3>
           <p>Fraser Towers Condominium,<br>Bukit Gasing, 46000 Petaling Jaya, Selangor</p>
-          <iframe
-            id="map2"
+          <iframe id="map2"
             src="https://maps.google.com/maps?q=3.0897822,101.6595048&z=17&output=embed"
             width="100%" height="220" style="border:0;border-radius:6px;margin-top:8px;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-          <!-- Location 3: Service Centre 2 - Riana Green -->
           <h3 style="margin-top:24px;">&#128205; Service Centre 2</h3>
           <p>Riana Green Condominium,<br>Jalan Tropicana Utara, Tropicana,<br>47410 Petaling Jaya, Selangor</p>
-          <iframe
-            id="map3"
+          <iframe id="map3"
             src="https://maps.google.com/maps?q=Riana+Green+Condominium+Tropicana+Petaling+Jaya&z=17&output=embed"
             width="100%" height="220" style="border:0;border-radius:6px;margin-top:8px;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
-
         </div>
       </div>
     </section>
-
   </div>
 
-  <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <p>&#169; 2026 Fix It Sukil. All rights reserved.</p>
     <p style="margin-top:8px;font-size:13px;"><a href="privacy.html" style="color:#aaa;text-decoration:none;">Privacy Policy</a></p>
     <div class="visitor-counter">
       <span>&#128065; Visitors:</span>
       <a href="https://www.hitwebcounter.com" target="_blank">
-        <img
-          src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
-          title="Counter Widget" alt="Visit counter For Websites" border="0"
-        />
+        <img src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
+          title="Counter Widget" alt="Visit counter For Websites" border="0" />
       </a>
     </div>
   </footer>
 
-  <!-- ========== SCRIPTS ========== -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
-
-      // ── Side menu ──────────────────────────────────────────────────────
       var menuButton  = document.getElementById('menuButtonContact');
       var sideMenu    = document.getElementById('sideMenuContact');
       var closeButton = document.getElementById('closeButtonContact');
       var overlay     = document.getElementById('menuOverlay');
-      var map1        = document.getElementById('map1');
-      var map2        = document.getElementById('map2');
-
+      var map1 = document.getElementById('map1');
+      var map2 = document.getElementById('map2');
       var map3 = document.getElementById('map3');
 
       function openMenu() {
@@ -161,12 +134,10 @@
         if (map2) map2.style.pointerEvents = 'auto';
         if (map3) map3.style.pointerEvents = 'auto';
       }
-
       menuButton.addEventListener('click', openMenu);
       closeButton.addEventListener('click', closeMenu);
       overlay.addEventListener('click', closeMenu);
 
-      // ── Fade-in ────────────────────────────────────────────────────────
       var fadeElements = document.querySelectorAll('.fade-in');
       var fadeObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -174,68 +145,11 @@
         });
       }, { threshold: 0.1 });
       fadeElements.forEach(function(el) { fadeObserver.observe(el); });
+    });
+  </script>
 
-      // ── Contact form ───────────────────────────────────────────────────
-      var pageLoadTime = Date.now();
-      var contactForm  = document.getElementById('contactForm');
-      var responseText = document.getElementById('contact-response');
+  <!-- Form handling via script.js -->
+  <script src="script.js"></script>
 
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var submitBtn = contactForm.querySelector('button');
-        responseText.innerText = '⏳ Sending your message...';
-        responseText.style.color = '#555';
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Sending...';
-
-        var nameValue    = contactForm.querySelector('[name="name"]').value.trim();
-        var emailValue   = contactForm.querySelector('[name="email"]').value.trim();
-        var phoneValue   = contactForm.querySelector('[name="phone"]').value.trim();
-        var messageValue = contactForm.querySelector('[name="message"]').value.trim();
-        var hpField      = contactForm.querySelector('[name="_hp"]');
-        var honeypot     = hpField ? hpField.value : '';
-
-        var phonePattern = /^[0-9]{8,15}$/;
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!nameValue || !emailValue || !phoneValue || !messageValue) {
-          responseText.innerText = '❌ Please fill in all fields.';
-          responseText.style.color = 'red';
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Submit';
-          return;
-        }
-        if (!phonePattern.test(phoneValue)) {
-          responseText.innerText = '❌ Invalid phone number. Use 8-15 digits only.';
-          responseText.style.color = 'red';
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Submit';
-          return;
-        }
-        if (!emailPattern.test(emailValue)) {
-          responseText.innerText = '❌ Please enter a valid email address.';
-          responseText.style.color = 'red';
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Submit';
-          return;
-        }
-
-        var formData = new FormData();
-        formData.append('name',    nameValue);
-        formData.append('email',   emailValue);
-        formData.append('phone',   phoneValue);
-        formData.append('message', messageValue);
-        formData.append('_hp',     honeypot);
-        formData.append('_ts',     pageLoadTime.toString());
-
-        var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbw9ypaMqWv3uGieEZiLuQ86FT5I35PP88XfgJP_69GUXuzYHMIRynYUsLYqzwvACoij/exec';
-
-        fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: formData })
-          .then(function() {
-            responseText.innerText = '✅ Message sent! We\'ll get back to you soon.';
-            responseText.style.color = 'green';
-            contactForm.reset();
-          })
-          .catch(function(err) {
-            responseText.innerText = '❌ Something went wrong. Please try again.';
-    
+</body>
+</html>
