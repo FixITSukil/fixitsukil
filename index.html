@@ -51,7 +51,7 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://blog.fixitsukil.com" target="_blank">Blog</a></li>
         <li><a href="track.html">Track Repair</a></li>
         <li><a href="warranty.html">Warranty &amp; Policies</a></li>
         <li><a href="privacy.html">Privacy Policy</a></li>
@@ -81,6 +81,8 @@
         <input type="text" name="device" placeholder="Device (Laptop/Desktop)" required />
         <textarea name="message" placeholder="Describe the issue..." required></textarea>
         <input type="email" name="email" placeholder="Your Email" required />
+        <!-- Honeypot: hidden from humans, bots fill it automatically -->
+        <input type="text" name="_hp" style="display:none!important;" tabindex="-1" autocomplete="off" />
         <button type="submit">Submit Booking</button>
       </form>
       <p id="form-response" style="margin-top:15px;"></p>

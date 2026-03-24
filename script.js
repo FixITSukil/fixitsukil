@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("bookingForm");
   const responseText = document.getElementById("form-response");
 
+  // ── BOT PROTECTION: Record page load time ──────────────────────────────
+  // This timestamp is sent with the form. If submitted in under 3 seconds,
+  // the Apps Script will reject it as a bot.
+  const pageLoadTime = Date.now();
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -18,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const deviceValue  = form.device.value.trim();
     const messageValue = form.message.value.trim();
     const emailValue   = form.email.value.trim();
-    const remarkValue  = ""; // Keep blank for now; you can add a remark input later if needed
+    const remarkValue  = "";
 
     // 2) Basic validation patterns
     const phonePattern = /^[0-9]{8,15}$/;
@@ -51,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // 6) Build FormData (no custom headers → no preflight)
+    // 6) Build FormData
     const formData = new FormData();
     formData.append("name",    nameValue);
     formData.append("phone",   phoneValue);
@@ -60,18 +65,22 @@ document.addEventListener("DOMContentLoaded", function () {
     formData.append("email",   emailValue);
     formData.append("remark",  remarkValue);
 
-    // 7) Your NEW Web App URL (ensure it matches exactly the deployed URL)
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz9ksvhSp3tc7at2CaMI7ViOgsK5Qf9pOjOqsP6XOJ8w8-qdGRXWADj1Dtijd6muJSD/exec";
+    // ── BOT PROTECTION: Append honeypot and timestamp ──────────────────
+    // _hp: honeypot field -- humans leave it blank, bots fill it
+    // _ts: page load timestamp -- Apps Script checks time elapsed
+    formData.append("_hp", form._hp ? form._hp.value : "");
+    formData.append("_ts", pageLoadTime.toString());
 
-    // 8) Send the POST request in no-cors mode
+    // 7) Web App URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw9ypaMqWv3uGieEZiLuQ86FT5I35PP88XfgJP_69GUXuzYHMIRynYUsLYqzwvACoij/exec";
+
+    // 8) Send POST request
     fetch(WEB_APP_URL, {
       method: "POST",
       mode: "no-cors",
       body: formData
     })
       .then(() => {
-        // In no-cors mode we cannot read the server’s JSON response.
-        // Assume success if no network error occurred.
         responseText.innerText = "✅ Booking submitted! Check your email for confirmation.";
         responseText.style.color = "green";
         form.reset();
