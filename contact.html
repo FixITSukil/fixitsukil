@@ -30,13 +30,9 @@
   <!-- ========== STICKY HEADER & SIDE MENU ========== -->
   <header class="sticky-header">
     <div class="header-container">
-      <!-- Hamburger icon -->
       <div class="menu-button" id="menuButtonContact">&#9776;</div>
-      <!-- Logo centered -->
       <img src="EXTENDED-MAIN-WHITE.png" alt="Fix It Sukil Logo" class="header-logo" />
     </div>
-
-    <!-- Side‐panel menu -->
     <nav class="side-menu" id="sideMenuContact" style="z-index:9999;">
       <div class="close-button" id="closeButtonContact">&times;</div>
       <ul>
@@ -52,22 +48,20 @@
         <li><a href="privacy.html">Privacy Policy</a></li>
       </ul>
     </nav>
-  <!-- Menu overlay to block content clicks -->
-  <div id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:998;background:rgba(0,0,0,0.3);" id="menuOverlay"></div>
+    <!-- Overlay blocks page content when menu is open -->
+    <div id="menuOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:998;background:rgba(0,0,0,0.4);"></div>
   </header>
 
-  <!-- Everything except footer goes here -->
   <div class="main-content">
 
-    <!-- “Back to Home” button -->
     <div style="padding: 20px;">
-      <a href="index.html" class="cta-button">← Back to Home</a>
+      <a href="index.html" class="cta-button">&#8592; Back to Home</a>
     </div>
 
     <!-- ========== CONTACT SECTION ========== -->
     <section class="booking" id="contact">
       <h2>Send Us a Message</h2>
-      <p>Fill in your info and we’ll get back to you shortly.</p>
+      <p>Fill in your info and we'll get back to you shortly.</p>
 
       <div class="contact-wrapper">
         <!-- Left column: Contact form -->
@@ -77,35 +71,59 @@
             <input type="email" name="email" placeholder="Your Email" required />
             <input type="text" name="phone" placeholder="Phone Number" required />
             <textarea name="message" placeholder="Your Message..." required></textarea>
+            <!-- Honeypot: hidden from humans, bots fill it -->
+            <input type="text" name="_hp" style="display:none!important;" tabindex="-1" autocomplete="off" />
             <button type="submit">Submit</button>
           </form>
           <p id="contact-response" style="margin-top:15px;"></p>
         </div>
 
-        <!-- Right column: Google Map + Address -->
+        <!-- Right column: Info + Maps -->
         <div class="contact-info">
+
+          <h3>Contact Details</h3>
+          <p><strong>Email:</strong> admin@fixitsukil.com</p>
+          <p><strong>Phone / WhatsApp:</strong> +60 12-577 7436</p>
+
+          <!-- Location 1: Main Office - Puncak Alam -->
+          <h3 style="margin-top:24px;">&#128205; Main Office</h3>
+          <p>No. 66, Jalan Mapel 7/8, Bandar Hill Park,<br>42300 Bandar Puncak Alam, Selangor, Malaysia</p>
           <iframe
-            id="mapIframe"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.01945966845!2d101.65718751086067!3d3.0894773968731895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4bffd0038a45%3A0xce3fac09be1fc35f!2sFix%20IT%20Sukil%20(Home%20Based%20Business)!5e0!3m2!1sen!2sus!4v1748796010427!5m2!1sen!2sus"
-            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            id="map1"
+            src="https://maps.google.com/maps?q=3.2092529,101.4652463&z=17&output=embed"
+            width="100%" height="220" style="border:0;border-radius:6px;margin-top:8px;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-          <h3>Our Address</h3>
-          <p>No. 92, Jalan 5/60, Bukit Gasing,<br>46000 Petaling Jaya, Selangor, Malaysia</p>
-          <p><strong>Email:</strong> <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="751411181c1b35131c0d1c0106001e1c195b161a18">[email&#160;protected]</a></strong></p>
-          <p><strong>Phone/WhatsApp:</strong> +60 14 611 2790</p>
+          <!-- Location 2: Service Centre 1 - Fraser Towers -->
+          <h3 style="margin-top:24px;">&#128205; Service Centre 1</h3>
+          <p>Fraser Towers Condominium,<br>Bukit Gasing, 46000 Petaling Jaya, Selangor</p>
+          <iframe
+            id="map2"
+            src="https://maps.google.com/maps?q=3.0897822,101.6595048&z=17&output=embed"
+            width="100%" height="220" style="border:0;border-radius:6px;margin-top:8px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <!-- Location 3: Service Centre 2 - Riana Green -->
+          <h3 style="margin-top:24px;">&#128205; Service Centre 2</h3>
+          <p>Riana Green Condominium,<br>Jalan Tropicana Utara, Tropicana,<br>47410 Petaling Jaya, Selangor</p>
+          <iframe
+            id="map3"
+            src="https://maps.google.com/maps?q=Riana+Green+Condominium+Tropicana+Petaling+Jaya&z=17&output=embed"
+            width="100%" height="220" style="border:0;border-radius:6px;margin-top:8px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
         </div>
       </div>
     </section>
 
-  </div> <!-- /.main-content -->
+  </div>
 
-  <!-- ========== FOOTER (all pages) ========== -->
+  <!-- ========== FOOTER ========== -->
   <footer class="footer">
-    <p>© 2026 Fix It Sukil. All rights reserved.</p>
+    <p>&#169; 2026 Fix It Sukil. All rights reserved.</p>
     <p style="margin-top:8px;font-size:13px;"><a href="privacy.html" style="color:#aaa;text-decoration:none;">Privacy Policy</a></p>
     <div class="visitor-counter">
-      <span>👁 Visitors:</span>
+      <span>&#128065; Visitors:</span>
       <a href="https://www.hitwebcounter.com" target="_blank">
         <img
           src="https://hitwebcounter.com/counter/counter.php?page=20813285&style=0005&nbdigits=9&type=page&initCount=0"
@@ -115,101 +133,119 @@
     </div>
   </footer>
 
-  <!-- ========== MENU TOGGLE & FADE-IN SCRIPT ========== -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Side-menu toggle for Contact page
-      const menuButton   = document.getElementById('menuButtonContact');
-      const sideMenu     = document.getElementById('sideMenuContact');
-      const closeButton  = document.getElementById('closeButtonContact');
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-      const mapIframe = document.getElementById('mapIframe');
-      const overlay   = document.getElementById('menuOverlay');
+      // ── Side menu ──────────────────────────────────────────────────────
+      var menuButton  = document.getElementById('menuButtonContact');
+      var sideMenu    = document.getElementById('sideMenuContact');
+      var closeButton = document.getElementById('closeButtonContact');
+      var overlay     = document.getElementById('menuOverlay');
+      var map1        = document.getElementById('map1');
+      var map2        = document.getElementById('map2');
+
+      var map3 = document.getElementById('map3');
 
       function openMenu() {
         sideMenu.classList.add('active');
         overlay.style.display = 'block';
-        if (mapIframe) mapIframe.style.pointerEvents = 'none';
+        if (map1) map1.style.pointerEvents = 'none';
+        if (map2) map2.style.pointerEvents = 'none';
+        if (map3) map3.style.pointerEvents = 'none';
       }
       function closeMenu() {
         sideMenu.classList.remove('active');
         overlay.style.display = 'none';
-        if (mapIframe) mapIframe.style.pointerEvents = 'auto';
+        if (map1) map1.style.pointerEvents = 'auto';
+        if (map2) map2.style.pointerEvents = 'auto';
+        if (map3) map3.style.pointerEvents = 'auto';
       }
 
       menuButton.addEventListener('click', openMenu);
       closeButton.addEventListener('click', closeMenu);
       overlay.addEventListener('click', closeMenu);
 
-      // Fade-in on scroll
-      const fadeElements = document.querySelectorAll('.fade-in');
-      const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-      const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+      // ── Fade-in ────────────────────────────────────────────────────────
+      var fadeElements = document.querySelectorAll('.fade-in');
+      var fadeObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) entry.target.classList.add('visible');
         });
-      }, observerOptions);
-      fadeElements.forEach(el => fadeObserver.observe(el));
+      }, { threshold: 0.1 });
+      fadeElements.forEach(function(el) { fadeObserver.observe(el); });
 
-      // Contact form submission: reuse same logic as booking
-      const contactForm = document.getElementById('contactForm');
-      const responseText = document.getElementById('contact-response');
+      // ── Contact form ───────────────────────────────────────────────────
+      var pageLoadTime = Date.now();
+      var contactForm  = document.getElementById('contactForm');
+      var responseText = document.getElementById('contact-response');
 
-      contactForm.addEventListener('submit', function (e) {
+      contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const submitBtn = contactForm.querySelector('button');
-        responseText.innerText = "⏳ Sending your message...";
-        responseText.style.color = "#555";
+        var submitBtn = contactForm.querySelector('button');
+        responseText.innerText = '&#9203; Sending your message...';
+        responseText.style.color = '#555';
         submitBtn.disabled = true;
-        submitBtn.innerText = "Sending...";
+        submitBtn.innerText = 'Sending...';
 
-        // Trim values
-        const nameValue    = contactForm.name.value.trim();
-        const emailValue   = contactForm.email.value.trim();
-        const phoneValue   = contactForm.phone.value.trim();
-        const messageValue = contactForm.message.value.trim();
+        var nameValue    = contactForm.name.value.trim();
+        var emailValue   = contactForm.email.value.trim();
+        var phoneValue   = contactForm.phone.value.trim();
+        var messageValue = contactForm.message.value.trim();
+        var honeypot     = contactForm._hp ? contactForm._hp.value : '';
 
-        // Basic validation
-        const phonePattern = /^[0-9]{8,15}$/;
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var phonePattern = /^[0-9]{8,15}$/;
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!nameValue || !emailValue || !phoneValue || !messageValue) {
-          responseText.innerText = "❌ Please fill in all fields.";
-          responseText.style.color = "red";
+          responseText.innerText = '&#10060; Please fill in all fields.';
+          responseText.style.color = 'red';
           submitBtn.disabled = false;
-          submitBtn.innerText = "Submit";
+          submitBtn.innerText = 'Submit';
           return;
         }
         if (!phonePattern.test(phoneValue)) {
-          responseText.innerText = "❌ Invalid phone number. Use 8–15 digits only.";
-          responseText.style.color = "red";
+          responseText.innerText = '&#10060; Invalid phone number. Use 8-15 digits only.';
+          responseText.style.color = 'red';
           submitBtn.disabled = false;
-          submitBtn.innerText = "Submit";
+          submitBtn.innerText = 'Submit';
           return;
         }
         if (!emailPattern.test(emailValue)) {
-          responseText.innerText = "❌ Please enter a valid email address.";
-          responseText.style.color = "red";
+          responseText.innerText = '&#10060; Please enter a valid email address.';
+          responseText.style.color = 'red';
           submitBtn.disabled = false;
-          submitBtn.innerText = "Submit";
+          submitBtn.innerText = 'Submit';
           return;
         }
 
-        // Build FormData (no custom headers → no preflight)
-        const formData = new FormData();
-        formData.append("name", nameValue);
-        formData.append("email", emailValue);
-        formData.append("phone", phoneValue);
-        formData.append("message", messageValue);
+        var formData = new FormData();
+        formData.append('name',    nameValue);
+        formData.append('email',   emailValue);
+        formData.append('phone',   phoneValue);
+        formData.append('message', messageValue);
+        formData.append('_hp',     honeypot);
+        formData.append('_ts',     pageLoadTime.toString());
 
-        // Note: Reuse the same Web App URL for bookings (just writing into the same sheet)
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz9ksvhSp3tc7at2CaMI7ViOgsK5Qf9pOjOqsP6XOJ8w8-qdGRXWADj1Dtijd6muJSD/exec";
+        var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbw9ypaMqWv3uGieEZiLuQ86FT5I35PP88XfgJP_69GUXuzYHMIRynYUsLYqzwvACoij/exec';
 
-        fetch(WEB_APP_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: formData
-        })
-        .then(() => {
-          responseText.innerText = "✅ Message sent! We’ll get back to you soon.";
-          res
+        fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: formData })
+          .then(function() {
+            responseText.innerText = '&#9989; Message sent! We\'ll get back to you soon.';
+            responseText.style.color = 'green';
+            contactForm.reset();
+          })
+          .catch(function(err) {
+            responseText.innerText = '&#10060; Something went wrong. Please try again.';
+            responseText.style.color = 'red';
+          })
+          .finally(function() {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Submit';
+          });
+      });
+    });
+  </script>
+
+</body>
+</html>
